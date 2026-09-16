@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "字幕划词翻译",
+  "version": "1.0.0",
+  "description": "划词翻译，原文与译文以字幕形式呈现在页面底部",
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://api.mymemory.translated.net/*",
+    "https://translate.googleapis.com/*",
+    "http://localhost:11434/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "字幕划词翻译",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}
